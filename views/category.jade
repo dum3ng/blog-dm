@@ -1,0 +1,9 @@
+extends layout
+block content
+    h2= category.name
+    p= 'contains '+posts.length+ ' posts.'
+    ul
+        each post in posts
+            li 
+                a(href='/post/'+post.id)= post.title
+                

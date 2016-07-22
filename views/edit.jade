@@ -1,0 +1,14 @@
+extends layout
+block content
+    
+    if post
+    -    title=post.title
+    -    content= post.content
+    -    category= post.category
+    form(method='POST')
+        span Title
+        input(name='title',placeholder='title',value=title)
+        textarea(name='content',rows='20')= content
+        span Category
+        input(name='category',placeholder='category',value=category)
+        input(type='submit',value='commit')
