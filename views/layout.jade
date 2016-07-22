@@ -2,6 +2,12 @@ doctype html
 html
   head
     title= title
+    link(rel='icon',type='image/x-icon', href='/favicon.ico')
     link(rel='stylesheet', href='/stylesheets/style.css')
+    block extrascript
   body
     block content
+
+
+    block footer
+        .footer this is footer

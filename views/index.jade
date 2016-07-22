@@ -1,5 +1,22 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+    h1= title
+    p Welcome to #{title}
+    h2 #[a(href='/edit/new') new post]
+    .main
+        ul
+            each post in posts
+                li
+                    a(href='/post/'+post.id)= post.title
+                    span= "author:"+post.author
+                    span= post.createdDate
+                    span= "eidted: "+post.editDate
+                    p= post.content 
+    .side
+        ul
+            each cat in categories
+                li
+                    a(href='/cat/'+cat.name)= cat.name
+
+
