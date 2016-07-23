@@ -66,12 +66,17 @@ Anyone can access all the pages.
 
  - Category
     - name:String
-    - 
+    
 
 
 
 
-##
+#Fixes
+##0723
+
+ - [x] when the category user posted is not in current categories, then create a **new** category. And if category not set, should be categorized to **default**
+ - [ ] Add basic css
+
 
 
 

@@ -1,14 +1,24 @@
 extends layout
 block content
-    
-    if post
-    -    title=post.title
-    -    content= post.content
-    -    category= post.category
-    form(method='POST')
-        span Title
-        input(name='title',placeholder='title',value=title)
-        textarea(name='content',rows='20')= content
-        span Category
-        input(name='category',placeholder='category',value=category)
-        input(type='submit',value='commit')
+    .container
+        .row
+            .col-xs-12
+                if post
+                    -    title=post.title
+                    -    content= post.content
+                    -    category= post.category
+                    -    author=post.author
+                form(method='POST')
+                    .input-group
+                        span.input-group-addon#addon1 Title
+                        input.form-control(name='title',aria-describedby='addon1',value=title)
+                    .input-group
+                        span.input-group-addon#addon2 Author
+                        input.form-control(name='author',aria-describedby='addon2',value=author)
+                    .input-group
+                        span.input-group-addon#addon2 Category
+                        input.form-control(name='category',aria-describedby='addon2',value=category)
+                    textarea(rows='20',name='content',placeholder='write you post here...')= content
+                    input.btn.btn-default.btn-primary(type='submit',value='Commit!')
+                    
+                    

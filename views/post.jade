@@ -1,8 +1,9 @@
 extends layout
 block content
-    a(href='/') 
-        h1 HOME
-    hr
-    h2= post.title
-    a(href='/edit/'+post.id) Edit..
-    p= post.content
+    .container
+        .row
+            .col-xs-12
+                hr
+                h2= post.title
+                a(href='/edit/'+post.id) Edit..
+                p= post.content

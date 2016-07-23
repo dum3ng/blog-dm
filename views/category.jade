@@ -1,9 +1,15 @@
 extends layout
 block content
-    h2= category.name
-    p= 'contains '+posts.length+ ' posts.'
-    ul
-        each post in posts
-            li 
-                a(href='/post/'+post.id)= post.title
-                
+    .container
+        .row
+            .col-xs-12
+                h2 Category
+                each category in categories
+                    h3= category.name
+                        each post in category.posts
+                            h4 #[a(href='/post/'+post.id)= post.title] 
+                            span= post.author
+                            span= 'created: '+post.createdDate
+                            span= 'edited: '+post.editDate
+                            p= post.content 
+   

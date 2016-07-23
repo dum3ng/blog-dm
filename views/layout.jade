@@ -4,10 +4,26 @@ html
     title= title
     link(rel='icon',type='image/x-icon', href='/favicon.ico')
     link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel='stylesheet',href='http://cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.css')
     block extrascript
   body
+    block nav
+        div.navbar.navbar-default.navbar-fixed-top
+                    div.navbar-header
+                        a#site.navbar-brand(href='/') Blog
+                        a.navbar-toggle(data-toggle='collapse',data-target='.navbar-collapse')
+                            span.icon-bar
+                            span.icon-bar
+                            span.icon-bar
+                    div.navbar-collapse.collapse
+                        ul.nav.navbar-nav.navbar-right
+                            li.active #[a(href='/new') NewPost]
+                            li #[a(href='/cat') Category]
+                            li #[a(href='/about') About]
     block content
 
 
     block footer
-        .footer this is footer
+        .footer.text-center this is footer
+    block footerscript
+        script(src='http://cdn.bootcss.com/bootstrap/3.3.6/js/bootstrap.min.js')

@@ -6,27 +6,14 @@ var Category = require('../models/category')
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-    var emptyP = []
-    var emptyC = []
-
-    var fns = 0
+ 
     Post.find({},(err,posts)=>{
         if(err) throw err
-        fns++
-        emptyP = posts
-        if(fns===2){
-            res.render('index.jade',{posts:emptyP,categories:emptyC})
-        }
+
+        res.render('index.jade',{posts})
+
     })  
-    Category.find({},(err,cats)=>{
-        if(err) throw err 
-        fns++
-        emptyC = cats
-        if(fns===2){
-            res.render('index.jade',{posts:emptyP,categories:emptyC})
-        }
-    })
-  
+
 
 });
 
