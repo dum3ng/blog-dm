@@ -4,12 +4,16 @@ block content
         .row
             .col-xs-12
                 h2 Category
-                each category in categories
-                    h3= category.name
-                        each post in category.posts
-                            h4 #[a(href='/post/'+post.id)= post.title] 
-                            span= post.author
-                            span= 'created: '+post.createdDate
-                            span= 'edited: '+post.editDate
-                            p= post.content 
-   
+                .accordion
+                    ul
+                        each category in categories
+                            li
+                                label(for=category.name)= category.name
+                                input(type='radio',id=category.name,name='category')
+                                .content
+                                    each post in category.posts
+                                        h4 #[a(href='/post/'+post.id)= post.title] 
+                                        span= post.author
+                                        span= 'created: '+post.createdDate
+                                        span= 'edited: '+post.editDate
+                                
