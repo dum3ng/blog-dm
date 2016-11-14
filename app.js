@@ -16,7 +16,11 @@ var category = require('./routes/category')
 var edit = require('./routes/edit')
 
 var app = express();
-mongoose.connect(process.env.MONGODB)
+if( mongoose.connect(process.env.MONGODB) ){
+  console.log('connected to mongodb: '+process.env.MONGODB)
+}else{
+  throw new Error('mongodb not connected.')
+}
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
@@ -30,9 +34,10 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-app.use('img',express.static(path.join(__dirname,'public','images')))
-app.use('js',express.static(path.join(__dirname,'public','javascripts')))
-app.use('css',express.static(path.join(__dirname,'public','stylesheets')))
+app.use('/img',express.static(path.join(__dirname,'public','images')))
+app.use('/js',express.static(path.join(__dirname,'public','javascripts')))
+app.use('/css',express.static(path.join(__dirname,'public','stylesheets')))
+app.use('/modules',express.static(path.join(__dirname,'node_modules')))
 
 app.use('/', routes);
 app.use('/users', users);

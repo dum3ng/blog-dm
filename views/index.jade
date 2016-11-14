@@ -1,9 +1,12 @@
 extends layout
 
+block extrascript
+    
 block content
     .container
         .row
             .col-xs-12
+                #app
                 h1 All Posts
                 ul
                     each post in posts
@@ -12,6 +15,6 @@ block content
                             p= "author:"+post.author
                             p= post.createdDate
                             p= "eidted: "+post.editDate
-                    
+    script(src='js/bundle.js')                
     
 

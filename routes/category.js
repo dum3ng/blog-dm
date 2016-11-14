@@ -1,7 +1,7 @@
 var router = require('express').Router()
 var Category = require('../models/category')
 var Post = require('../models/post')
-
+var async = require('async')
 
 router.route('/')
 .get((req,res)=>{
@@ -9,16 +9,31 @@ router.route('/')
         if(err) throw err 
         var cats = categories.length
         var tasks=0
-        categories.forEach((cat)=>{
-            Post.find({category:cat.name},(err,posts)=>{
-                if(err) throw err 
-                cat.posts = posts
-                tasks++
-                if(tasks===cats){
-                    res.render('category',{categories})
+        async.each(categories, (cat, callback) => {
+            Post.find({category: cat.name}, (err, posts) => {
+                if (err) 
+                    callback(err)
+                else{
+                    cat.posts = posts
+                    callback()
                 }
             })
+        }, (err) => {
+            if(err) console.log(err)
+            else
+                res.render('category', {categories})
         })
+        // categories.forEach((cat)=>{
+        //     async.each()
+        //     Post.find({category:cat.name},(err,posts)=>{
+        //         if(err) throw err 
+        //         cat.posts = posts
+        //         tasks++
+        //         if(tasks===cats){
+        //             res.render('category',{categories})
+        //         }
+        //     })
+        // })
         
         
     })

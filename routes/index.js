@@ -6,7 +6,8 @@ var Category = require('../models/category')
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
- 
+    // res.setHeader('content-type','text/html')
+    // res.write('')
     Post.find({},(err,posts)=>{
         if(err) throw err
 
