@@ -1,20 +1,11 @@
-extends layout
-
-block extrascript
-    
-block content
-    .container
-        .row
-            .col-xs-12
-                #app
-                h1 All Posts
-                ul
-                    each post in posts
-                        li
-                            a(href='/post/'+post.id)= post.title
-                            p= "author:"+post.author
-                            p= post.createdDate
-                            p= "eidted: "+post.editDate
-    script(src='js/bundle.js')                
-    
+html
+  head
+    title= title
+    link(rel='icon',type='image/x-icon', href='/favicon.ico')
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel='stylesheet',href='http://cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.css')
+  body
+    #app
+    script(src='/js/app.bundle.js')
+    script(src='http://cdn.bootcss.com/bootstrap/3.3.6/js/bootstrap.min.js')    
 

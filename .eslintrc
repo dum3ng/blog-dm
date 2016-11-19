@@ -1,0 +1,4 @@
+{
+  "environment": ['node', 'browser'],
+  "extends": ["standard", "standard-react"]
+}

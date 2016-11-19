@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var Post = require('../models/post')
+var Article = require('../models/article')
 var Category = require('../models/category')
 // var flow = require('nimble')
 
@@ -8,10 +8,10 @@ var Category = require('../models/category')
 router.get('/', function(req, res, next) {
     // res.setHeader('content-type','text/html')
     // res.write('')
-    Post.find({},(err,posts)=>{
+    Article.find({},(err,articles)=>{
         if(err) throw err
 
-        res.render('index.jade',{posts})
+        res.render('index.jade',{articles})
 
     })  
 

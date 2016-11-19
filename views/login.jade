@@ -1,0 +1,14 @@
+html
+    head
+        title login
+        link(rel='stylesheet',href='http://cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.css')
+        link(rel='stylesheet', href='/css/style.css')
+        script(src="http://cdn.bootcss.com/jquery/2.2.2/jquery.min.js")
+    body
+        .container
+            .col-sm-2.col-sm-offset-5
+                form.form-inline
+                    input#username.form-control.input-sm(type='text',placeholder='username')
+                    input#password.form-control.input-sm(type='password',placeholder='password')
+                    button.btn.btn-default#login log in
+        script(type='text/javascript',src='/js/client/login.js')

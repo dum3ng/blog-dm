@@ -1,13 +1,14 @@
 var mongoose = require('mongoose')
 var Schema = mongoose.Schema
 
-var Post = new Schema({
+var Article = new Schema({
     title:String,
     category:String,
-    createdDate:{type:Date,default:Date.now},
-    editDate:{type:Date,default:Date.now},
+    createAt:{type:Date,default:Date.now},
+    updateAt:{type:Date,default:Date.now},
     content:String,
     author:String,
+    tags: [String],
     comments:[{author:String,
                 date:{type:Date,default:Date.now},
                 content:String}],
@@ -15,4 +16,4 @@ var Post = new Schema({
 })
 
 
-module.exports = mongoose.model('Post',Post)
+module.exports = mongoose.model('Article',Article)

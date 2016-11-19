@@ -56,17 +56,17 @@
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _aphrodite = __webpack_require__(175);
-
 	var _reactRedux = __webpack_require__(197);
 
-	var _store = __webpack_require__(222);
+	var _aphrodite = __webpack_require__(175);
 
-	var _store2 = _interopRequireDefault(_store);
-
-	var _Screen = __webpack_require__(227);
+	var _Screen = __webpack_require__(271);
 
 	var _Screen2 = _interopRequireDefault(_Screen);
+
+	var _store = __webpack_require__(279);
+
+	var _store2 = _interopRequireDefault(_store);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -82,19 +82,20 @@
 	    display: 'flex'
 	  }
 	});
-	console.log('store');
-	console.log(_store2.default);
 
-	var App = function (_Component) {
-	  _inherits(App, _Component);
+	var Dashboard = function (_React$Component) {
+	  _inherits(Dashboard, _React$Component);
 
-	  function App() {
-	    _classCallCheck(this, App);
+	  function Dashboard(props) {
+	    _classCallCheck(this, Dashboard);
 
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(App).apply(this, arguments));
+	    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Dashboard).call(this, props));
+
+	    _this.state = {};
+	    return _this;
 	  }
 
-	  _createClass(App, [{
+	  _createClass(Dashboard, [{
 	    key: 'render',
 	    value: function render() {
 	      return _react2.default.createElement(
@@ -109,10 +110,10 @@
 	    }
 	  }]);
 
-	  return App;
-	}(_react.Component);
+	  return Dashboard;
+	}(_react2.default.Component);
 
-	_reactDom2.default.render(_react2.default.createElement(App, null), document.getElementById('app'));
+	_reactDom2.default.render(_react2.default.createElement(Dashboard, null), document.getElementById('app'));
 
 /***/ },
 /* 1 */
@@ -24828,184 +24829,83 @@
 
 
 /***/ },
-/* 222 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _redux = __webpack_require__(204);
-
-	var _reducers = __webpack_require__(223);
-
-	var _reducers2 = _interopRequireDefault(_reducers);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	if (_reducers2.default) console.log('reducers exists');else console.log('reducers NOT exists.');
-
-	exports.default = (0, _redux.createStore)(_reducers2.default);
-
-/***/ },
-/* 223 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _redux = __webpack_require__(204);
-
-	var _tab = __webpack_require__(224);
-
-	var _tab2 = _interopRequireDefault(_tab);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	var reducers = (0, _redux.combineReducers)({
-	  tab: _tab2.default
-	});
-	// console.log(reducers)
-	exports.default = reducers;
-
-/***/ },
-/* 224 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _tab = __webpack_require__(225);
-
-	var _tab2 = _interopRequireDefault(_tab);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	// console.log(TAB)
-	var tab = function tab() {
-	  var state = arguments.length <= 0 || arguments[0] === undefined ? 'home' : arguments[0];
-	  var action = arguments[1];
-
-	  switch (action.type) {
-	    case _tab2.default.actionTypes.GOTO_TAB:
-	      {
-	        return action.tab;
-	      }
-	    default:
-	      return state;
-	  }
-	};
-	exports.default = tab;
-
-/***/ },
-/* 225 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _actionCreator = __webpack_require__(226);
-
-	var _actionCreator2 = _interopRequireDefault(_actionCreator);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	exports.default = (0, _actionCreator2.default)({
-	  'GOTO_TAB': function gotoTab(tab) {
-	    return {
-	      type: 'GOTO_TAB',
-	      tab: tab
-	    };
-	  }
-	  // 'GOTO_HOME': function gotoHome(){
-	  //     return {
-	  //       type: GOTO_HOME
-	  //     }
-	  //   },
-	  // 'GOTO_ARCHIVES': function gotoArchives(){
-	  //   return {
-	  //     type: GOTO_ARCHIVES
-	  //   }
-	  // },
-	  // 'GOTO_ABOUT': function gotoAbout(){
-	  //   return {
-	  //     type: GOTO_ABOUT
-	  //   }
-	  // }
-	}); // const GOTO_HOME = 'GOTO_HOME'
-	// const GOTO_ARCHIVES = 'GOTO_ARCHIVES'
-	// const GOTO_ABOUT = 'GOTO_ABOUT'
-
-	// function gotoHome(){
-	//   return {
-	//     type: GOTO_HOME
-	//   }
-	// }
-
-	// function gotoArchives(){
-	//   return {
-	//     type: GOTO_ARCHIVES
-	//   }
-	// }
-
-	// function gotoAbout(){
-	//   return {
-	//     type: GOTO_ABOUT
-	//   }
-	// }
-
-	// export default TAB={
-	//   actionTypes: 
-	// }
-
-/***/ },
-/* 226 */
+/* 222 */,
+/* 223 */,
+/* 224 */,
+/* 225 */,
+/* 226 */,
+/* 227 */
 /***/ function(module, exports) {
 
 	'use strict';
 
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	// actionFunctions is like:
-	// {
-	//  'type0': function (){},
-	//  'type1':function (){}
-	// }
+	exports.__esModule = true;
+	function createThunkMiddleware(extraArgument) {
+	  return function (_ref) {
+	    var dispatch = _ref.dispatch;
+	    var getState = _ref.getState;
+	    return function (next) {
+	      return function (action) {
+	        if (typeof action === 'function') {
+	          return action(dispatch, getState, extraArgument);
+	        }
 
-	function actionCreator(actionFunctions) {
-	  var types = Object.keys(actionFunctions);
-	  var actions = Object.values(actionFunctions);
-	  console.log('actions: ' + actions);
-	  var a = {};
-	  var b = {};
-	  actions.forEach(function (value, index) {
-	    a[types[index]] = types[index];
-	    console.log(value.name);
-	    b[value.name] = value;
-	  });
-
-	  return {
-	    actionTypes: a,
-	    actions: b
+	        return next(action);
+	      };
+	    };
 	  };
 	}
 
-	exports.default = actionCreator;
+	var thunk = createThunkMiddleware();
+	thunk.withExtraArgument = createThunkMiddleware;
+
+	exports['default'] = thunk;
 
 /***/ },
-/* 227 */
+/* 228 */,
+/* 229 */,
+/* 230 */,
+/* 231 */,
+/* 232 */,
+/* 233 */,
+/* 234 */,
+/* 235 */,
+/* 236 */,
+/* 237 */,
+/* 238 */,
+/* 239 */,
+/* 240 */,
+/* 241 */,
+/* 242 */,
+/* 243 */,
+/* 244 */,
+/* 245 */,
+/* 246 */,
+/* 247 */,
+/* 248 */,
+/* 249 */,
+/* 250 */,
+/* 251 */,
+/* 252 */,
+/* 253 */,
+/* 254 */,
+/* 255 */,
+/* 256 */,
+/* 257 */,
+/* 258 */,
+/* 259 */,
+/* 260 */,
+/* 261 */,
+/* 262 */,
+/* 263 */,
+/* 264 */,
+/* 265 */,
+/* 266 */,
+/* 267 */,
+/* 268 */,
+/* 269 */,
+/* 270 */,
+/* 271 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -25022,17 +24922,13 @@
 
 	var _aphrodite = __webpack_require__(175);
 
-	var _MetaBar = __webpack_require__(228);
+	var _SideBar = __webpack_require__(272);
 
-	var _MetaBar2 = _interopRequireDefault(_MetaBar);
+	var _SideBar2 = _interopRequireDefault(_SideBar);
 
-	var _MainContainer = __webpack_require__(229);
+	var _Main = __webpack_require__(275);
 
-	var _MainContainer2 = _interopRequireDefault(_MainContainer);
-
-	var _SideBarContainer = __webpack_require__(233);
-
-	var _SideBarContainer2 = _interopRequireDefault(_SideBarContainer);
+	var _Main2 = _interopRequireDefault(_Main);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -25045,9 +24941,9 @@
 	var styles = _aphrodite.StyleSheet.create({
 	  container: {
 	    flex: 1,
-	    display: 'flex',
-	    flexDirection: 'row'
+	    display: 'flex'
 	  }
+
 	});
 
 	var Screen = function (_Component) {
@@ -25058,9 +24954,7 @@
 
 	    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Screen).call(this, props));
 
-	    _this.state = {
-	      tab: ''
-	    };
+	    _this.state = {};
 	    return _this;
 	  }
 
@@ -25070,9 +24964,8 @@
 	      return _react2.default.createElement(
 	        'div',
 	        { className: (0, _aphrodite.css)(styles.container) },
-	        _react2.default.createElement(_SideBarContainer2.default, null),
-	        _react2.default.createElement(_MainContainer2.default, null),
-	        _react2.default.createElement(_MetaBar2.default, null)
+	        _react2.default.createElement(_SideBar2.default, null),
+	        _react2.default.createElement(_Main2.default, null)
 	      );
 	    }
 	  }]);
@@ -25083,7 +24976,7 @@
 	exports.default = Screen;
 
 /***/ },
-/* 228 */
+/* 272 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -25099,653 +24992,14 @@
 	var _react2 = _interopRequireDefault(_react);
 
 	var _aphrodite = __webpack_require__(175);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var styles = _aphrodite.StyleSheet.create({
-	  container: {
-	    width: 200,
-	    backgroundColor: '#333',
-	    color: 'white'
-	  }
-	});
-
-	var MetaBar = function (_Component) {
-	  _inherits(MetaBar, _Component);
-
-	  function MetaBar(props) {
-	    _classCallCheck(this, MetaBar);
-
-	    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(MetaBar).call(this, props));
-
-	    _this.state = {
-	      tab: ''
-	    };
-	    return _this;
-	  }
-
-	  _createClass(MetaBar, [{
-	    key: 'render',
-	    value: function render() {
-	      return _react2.default.createElement(
-	        'div',
-	        { className: (0, _aphrodite.css)(styles.container) },
-	        'I am meta bar.'
-	      );
-	    }
-	  }]);
-
-	  return MetaBar;
-	}(_react.Component);
-
-	exports.default = MetaBar;
-
-/***/ },
-/* 229 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
 
 	var _reactRedux = __webpack_require__(197);
 
-	var _Main = __webpack_require__(230);
-
-	var _Main2 = _interopRequireDefault(_Main);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	var mapProps = function mapProps(state) {
-	  return {
-	    tab: state.tab
-	  };
-	};
-
-	exports.default = (0, _reactRedux.connect)(mapProps)(_Main2.default);
-
-/***/ },
-/* 230 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _aphrodite = __webpack_require__(175);
-
-	var _HomeContainer = __webpack_require__(231);
-
-	var _HomeContainer2 = _interopRequireDefault(_HomeContainer);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var styles = _aphrodite.StyleSheet.create({
-	  container: {
-	    flex: 1,
-
-	    backgroundColor: 'white'
-	  }
-	});
-
-	var post = {
-	  title: 'this is the recent post',
-	  content: ' A long post contains something\nInteger nec hendrerit dui, ac cursus augue. Quisque vel dignissim enim. \nSuspendisse nec commodo erat. Maecenas sed fermentum ligula. Pellentesque cursus massa quis lectus tristique convallis vitae nec massa. Etiam molestie dolor semper viverra hendrerit. Morbi vulputate massa vitae nulla eleifend dapibus. Pellentesque vel porttitor odio.\n  '
-	};
-
-	var Main = function (_Component) {
-	  _inherits(Main, _Component);
-
-	  function Main(props) {
-	    _classCallCheck(this, Main);
-
-	    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Main).call(this, props));
-
-	    _this.state = {
-	      post: {}
-	    };
-	    return _this;
-	  }
-
-	  _createClass(Main, [{
-	    key: 'componentDidMount',
-	    value: function componentDidMount() {
-	      var _this2 = this;
-
-	      console.log('main did mount...');
-	      fetch('http://localhost:3000/api/articles/recent').then(function (response) {
-	        return response.json();
-	      }).then(function (json) {
-	        _this2.setState({ post: json });
-	      });
-	    }
-	  }, {
-	    key: 'render',
-	    value: function render() {
-	      var _this3 = this;
-
-	      var content = function (t) {
-	        switch (t) {
-	          case 'archives':
-	            return _react2.default.createElement(
-	              'h2',
-	              null,
-	              'this is archives page.'
-	            );
-	          case 'about':
-	            return _react2.default.createElement(
-	              'h2',
-	              null,
-	              'This is about me page.'
-	            );
-	          case 'home':
-	          default:
-	            return _react2.default.createElement(_HomeContainer2.default, { post: _this3.state.post });
-	        }
-	      }(this.props.tab);
-	      return _react2.default.createElement(
-	        'div',
-	        { className: (0, _aphrodite.css)(styles.container) },
-	        content
-	      );
-	    }
-	  }]);
-
-	  return Main;
-	}(_react.Component);
-
-	exports.default = Main;
-
-/***/ },
-/* 231 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _aphrodite = __webpack_require__(175);
-
-	var _Spinner = __webpack_require__(232);
-
-	var _Spinner2 = _interopRequireDefault(_Spinner);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var styles = _aphrodite.StyleSheet.create({
-	  container: {
-	    flex: 1,
-	    display: 'flex',
-	    flexDirection: 'column'
-	  }
-
-	});
-
-	var HomeContainer = function (_Component) {
-	  _inherits(HomeContainer, _Component);
-
-	  function HomeContainer(props) {
-	    _classCallCheck(this, HomeContainer);
-
-	    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(HomeContainer).call(this, props));
-
-	    _this.state = {};
-	    return _this;
-	  }
-
-	  _createClass(HomeContainer, [{
-	    key: 'render',
-	    value: function render() {
-	      var content = this.props.post.title ? _react2.default.createElement(
-	        'div',
-	        null,
-	        _react2.default.createElement(
-	          'h2',
-	          null,
-	          this.props.post.title
-	        ),
-	        _react2.default.createElement(
-	          'div',
-	          null,
-	          this.props.post.content
-	        )
-	      ) : _react2.default.createElement(_Spinner2.default, null);
-	      return _react2.default.createElement(
-	        'div',
-	        { className: (0, _aphrodite.css)(styles.container) },
-	        content
-	      );
-	    }
-	  }]);
-
-	  return HomeContainer;
-	}(_react.Component);
-
-	exports.default = HomeContainer;
-
-/***/ },
-/* 232 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _aphrodite = __webpack_require__(175);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var styles = _aphrodite.StyleSheet.create({
-	  container: {
-	    flex: 1,
-	    display: 'flex',
-	    flexDirection: 'column',
-	    alignItems: 'center'
-	  },
-	  space: {
-	    flex: 1
-	  }
-
-	});
-
-	var _Spinner = function (_Component) {
-	  _inherits(_Spinner, _Component);
-
-	  function _Spinner(props) {
-	    _classCallCheck(this, _Spinner);
-
-	    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(_Spinner).call(this, props));
-
-	    _this.state = {};
-	    return _this;
-	  }
-
-	  _createClass(_Spinner, [{
-	    key: 'render',
-	    value: function render() {
-	      return _react2.default.createElement('img', { src: '/images/spinner.svg', style: { transform: 'rotate(' + this.props.rotation + 'deg)' } });
-	    }
-	  }]);
-
-	  return _Spinner;
-	}(_react.Component);
-
-	var Spinner = function (_Component2) {
-	  _inherits(Spinner, _Component2);
-
-	  function Spinner(props) {
-	    _classCallCheck(this, Spinner);
-
-	    var _this2 = _possibleConstructorReturn(this, Object.getPrototypeOf(Spinner).call(this, props));
-
-	    _this2.state = {
-	      rotation: 0
-	    };
-	    _this2.timer;
-	    return _this2;
-	  }
-
-	  _createClass(Spinner, [{
-	    key: 'componentDidMount',
-	    value: function componentDidMount() {
-	      var _this3 = this;
-
-	      this.timer = setInterval(function () {
-	        _this3.setState({ rotation: _this3.state.rotation + 12 });
-	      }, 1000 / 60);
-	    }
-	  }, {
-	    key: 'componentWillUnmount',
-	    value: function componentWillUnmount() {
-	      clearInterval(this.timer);
-	    }
-	  }, {
-	    key: 'render',
-	    value: function render() {
-	      return _react2.default.createElement(
-	        'div',
-	        { className: (0, _aphrodite.css)(styles.container) },
-	        _react2.default.createElement('div', { className: (0, _aphrodite.css)(styles.space) }),
-	        _react2.default.createElement(_Spinner, { rotation: this.state.rotation }),
-	        _react2.default.createElement('div', { className: (0, _aphrodite.css)(styles.space) })
-	      );
-	    }
-	  }]);
-
-	  return Spinner;
-	}(_react.Component);
-
-	exports.default = Spinner;
-
-/***/ },
-/* 233 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _SideBar = __webpack_require__(234);
-
-	var _SideBar2 = _interopRequireDefault(_SideBar);
-
-	var _reactRedux = __webpack_require__(197);
-
-	var _tab = __webpack_require__(225);
+	var _tab = __webpack_require__(273);
 
 	var _tab2 = _interopRequireDefault(_tab);
 
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	var mapProps = function mapProps(state) {
-	  return {
-	    tab: state.tab
-	  };
-	};
-	var mapDispatch = function mapDispatch(dispatch) {
-	  return {
-	    gotoHome: function gotoHome() {
-	      return dispatch(_tab2.default.actions.gotoHome());
-	    },
-	    gotoArchives: function gotoArchives() {
-	      return dispatch(_tab2.default.actions.gotoArchives());
-	    },
-	    gotoAbout: function gotoAbout() {
-	      return dispatch(_tab2.default.actions.gotoAbout());
-	    }
-	  };
-	};
-
-	exports.default = (0, _reactRedux.connect)(mapProps, mapDispatch)(_SideBar2.default);
-
-/***/ },
-/* 234 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _aphrodite = __webpack_require__(175);
-
-	var _Profile = __webpack_require__(235);
-
-	var _Profile2 = _interopRequireDefault(_Profile);
-
-	var _SideBarItemsContainer = __webpack_require__(236);
-
-	var _SideBarItemsContainer2 = _interopRequireDefault(_SideBarItemsContainer);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var image = 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Indian_Cat_pic.jpg/220px-Indian_Cat_pic.jpg';
-	var styles = _aphrodite.StyleSheet.create({
-	  sidebar: {
-	    width: 250,
-	    backgroundColor: '#333',
-	    display: 'flex',
-	    flexDirection: 'column'
-	  },
-	  space: {
-	    flex: 1
-	  }
-	});
-
-	var SideBar = function (_Component) {
-	  _inherits(SideBar, _Component);
-
-	  function SideBar(props) {
-	    _classCallCheck(this, SideBar);
-
-	    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(SideBar).call(this, props));
-
-	    _this.state = {
-	      tab: ''
-	    };
-	    return _this;
-	  }
-
-	  _createClass(SideBar, [{
-	    key: 'render',
-	    value: function render() {
-	      return _react2.default.createElement(
-	        'div',
-	        { className: (0, _aphrodite.css)(styles.sidebar) },
-	        _react2.default.createElement('div', { className: (0, _aphrodite.css)(styles.space) }),
-	        _react2.default.createElement(_Profile2.default, { imageSource: image, name: 'Du Meng' }),
-	        _react2.default.createElement('div', { className: (0, _aphrodite.css)(styles.space) }),
-	        _react2.default.createElement(_SideBarItemsContainer2.default, null)
-	      );
-	    }
-	  }]);
-
-	  return SideBar;
-	}(_react.Component);
-
-	exports.default = SideBar;
-
-/***/ },
-/* 235 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _aphrodite = __webpack_require__(175);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var styles = _aphrodite.StyleSheet.create({
-	  container: {
-	    display: 'flex',
-	    flexDirection: 'row',
-	    color: 'white',
-	    minHeight: 100
-	  },
-	  space: {
-	    flex: 1
-	  },
-	  wrapper: {
-	    display: 'flex',
-	    flexDirection: 'column',
-	    alignItems: 'center'
-	  },
-	  image: {
-	    width: 100,
-	    height: 100,
-	    borderRadius: 50
-	  },
-	  name: {
-	    textAlign: 'center'
-	  }
-	});
-
-	var Profile = function (_Component) {
-	  _inherits(Profile, _Component);
-
-	  function Profile(props) {
-	    _classCallCheck(this, Profile);
-
-	    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Profile).call(this, props));
-
-	    _this.state = {
-	      tab: ''
-	    };
-	    return _this;
-	  }
-
-	  _createClass(Profile, [{
-	    key: 'render',
-	    value: function render() {
-	      return _react2.default.createElement(
-	        'div',
-	        { className: (0, _aphrodite.css)(styles.container) },
-	        _react2.default.createElement('div', { className: (0, _aphrodite.css)(styles.space) }),
-	        _react2.default.createElement(
-	          'div',
-	          { className: (0, _aphrodite.css)(styles.wrapper) },
-	          _react2.default.createElement('img', { className: (0, _aphrodite.css)(styles.image), src: this.props.imageSource }),
-	          _react2.default.createElement(
-	            'p',
-	            { className: (0, _aphrodite.css)(styles.name) },
-	            this.props.name
-	          )
-	        ),
-	        _react2.default.createElement('div', { className: (0, _aphrodite.css)(styles.space) })
-	      );
-	    }
-	  }]);
-
-	  return Profile;
-	}(_react.Component);
-
-	exports.default = Profile;
-
-/***/ },
-/* 236 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _reactRedux = __webpack_require__(197);
-
-	var _SideBarItems = __webpack_require__(237);
-
-	var _SideBarItems2 = _interopRequireDefault(_SideBarItems);
-
-	var _tab = __webpack_require__(225);
-
-	var _tab2 = _interopRequireDefault(_tab);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	console.log(_tab2.default);
-	var mapProps = function mapProps(state) {
-	  return {
-	    tab: state.tab
-	  };
-	};
-
-	var mapDispatch = function mapDispatch(dispatch) {
-	  return {
-	    gotoHome: function gotoHome() {
-	      dispatch(_tab2.default.actions.gotoTab('home'));
-	    },
-	    gotoArchives: function gotoArchives() {
-	      dispatch(_tab2.default.actions.gotoTab('archives'));
-	    },
-	    gotoAbout: function gotoAbout() {
-	      dispatch(_tab2.default.actions.gotoTab('about'));
-	    }
-	  };
-	};
-
-	exports.default = (0, _reactRedux.connect)(mapProps, mapDispatch)(_SideBarItems2.default);
-
-/***/ },
-/* 237 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _aphrodite = __webpack_require__(175);
-
-	var _SideBarItem = __webpack_require__(238);
+	var _SideBarItem = __webpack_require__(274);
 
 	var _SideBarItem2 = _interopRequireDefault(_SideBarItem);
 
@@ -25759,58 +25013,95 @@
 
 	var styles = _aphrodite.StyleSheet.create({
 	  container: {
-	    flex: 3,
 	    display: 'flex',
-	    minHeight: 200,
-	    flexDirection: 'column'
+	    flexDirection: 'column',
+	    width: 250,
+	    backgroundColor: '#333',
+	    color: 'white'
+	  },
+	  space: {
+	    flex: 1
 	  }
 
 	});
 
-	var SideBarItems = function (_Component) {
-	  _inherits(SideBarItems, _Component);
+	var SideBar = function (_Component) {
+	  _inherits(SideBar, _Component);
 
-	  function SideBarItems(props) {
-	    _classCallCheck(this, SideBarItems);
+	  function SideBar(props) {
+	    _classCallCheck(this, SideBar);
 
-	    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(SideBarItems).call(this, props));
+	    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(SideBar).call(this, props));
 
 	    _this.state = {};
 	    return _this;
 	  }
 
-	  _createClass(SideBarItems, [{
-	    key: 'gotoHome',
-	    value: function gotoHome() {}
-	  }, {
-	    key: 'gotoArchives',
-	    value: function gotoArchives() {}
-	  }, {
-	    key: 'gotoAbout',
-	    value: function gotoAbout() {}
-	  }, {
+	  _createClass(SideBar, [{
 	    key: 'render',
 	    value: function render() {
 	      return _react2.default.createElement(
 	        'div',
 	        { className: (0, _aphrodite.css)(styles.container) },
-	        _react2.default.createElement(_SideBarItem2.default, { iconFile: '/images/home.svg', title: 'Home',
-	          _tab: 'home', tab: this.props.tab, onClick: this.props.gotoHome }),
-	        _react2.default.createElement(_SideBarItem2.default, { iconFile: '/images/archives.svg', title: 'Archives',
-	          _tab: 'archives', tab: this.props.tab, onClick: this.props.gotoArchives }),
-	        _react2.default.createElement(_SideBarItem2.default, { iconFile: '/images/about.svg', title: 'About Me',
-	          _tab: 'about', tab: this.props.tab, onClick: this.props.gotoAbout })
+	        _react2.default.createElement('div', { className: (0, _aphrodite.css)(styles.space) }),
+	        _react2.default.createElement(_SideBarItem2.default, { active: this.props.tab === 'new', title: 'New Article', onClick: this.props.onNew }),
+	        _react2.default.createElement(_SideBarItem2.default, { active: this.props.tab === 'articles', title: 'Articles', onClick: this.props.onArticles }),
+	        _react2.default.createElement(_SideBarItem2.default, { active: this.props.tab === 'settings', title: 'Settings', onClick: this.props.onSettings }),
+	        _react2.default.createElement('div', { className: (0, _aphrodite.css)(styles.space) })
 	      );
 	    }
 	  }]);
 
-	  return SideBarItems;
+	  return SideBar;
 	}(_react.Component);
 
-	exports.default = SideBarItems;
+	var mapProps = function mapProps(state) {
+	  return {
+	    tab: state.tab
+	  };
+	};
+
+	var mapDispatch = function mapDispatch(dispatch) {
+	  return {
+	    onNew: function onNew() {
+	      dispatch(_tab2.default.gotoTab('new'));
+	    },
+	    onArticles: function onArticles() {
+	      dispatch(_tab2.default.gotoTab('articles'));
+	    },
+	    onSettings: function onSettings() {
+	      dispatch(_tab2.default.gotoTab('settings'));
+	    }
+	  };
+	};
+
+	exports.default = (0, _reactRedux.connect)(mapProps, mapDispatch)(SideBar);
 
 /***/ },
-/* 238 */
+/* 273 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	var GOTO_TAB = 'GOTO_TAB';
+
+	var gotoTab = function gotoTab(tab) {
+	  return {
+	    type: GOTO_TAB,
+	    tab: tab
+	  };
+	};
+
+	exports.default = {
+	  GOTO_TAB: GOTO_TAB,
+	  gotoTab: gotoTab
+	};
+
+/***/ },
+/* 274 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -25835,24 +25126,14 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var color = 'white';
 	var styles = _aphrodite.StyleSheet.create({
 	  container: {
 	    flex: 1,
 	    display: 'flex',
-	    color: color,
-	    paddingTop: 5,
-	    paddingBottom: 5,
-	    cursor: 'pointer'
-	  },
-	  icon: {
-	    display: 'inline-block',
-	    width: 50
-	  },
-	  title: {
-	    display: 'inline-block',
-	    textAlign: 'right'
+	    cursor: 'pointer',
+	    color: 'white'
 	  }
+
 	});
 
 	var SideBarItem = function (_Component) {
@@ -25870,26 +25151,15 @@
 	  _createClass(SideBarItem, [{
 	    key: 'render',
 	    value: function render() {
-	      if (this.props._tab === this.props.tab) {
-	        color = 'red';
-	      } else color = 'white';
 	      return _react2.default.createElement(
 	        'div',
 	        { className: (0, _aphrodite.css)(styles.container), onClick: this.props.onClick },
 	        _react2.default.createElement(
-	          'div',
-	          { className: (0, _aphrodite.css)(styles.icon) },
-	          _react2.default.createElement('img', { src: this.props.iconFile })
+	          'span',
+	          { style: { color: this.props.active ? 'red' : 'white' } },
+	          this.props.title
 	        ),
-	        _react2.default.createElement(
-	          'div',
-	          { className: (0, _aphrodite.css)(styles.title) },
-	          _react2.default.createElement(
-	            'span',
-	            { style: { color: color } },
-	            this.props.title
-	          )
-	        )
+	        _react2.default.createElement('hr', null)
 	      );
 	    }
 	  }]);
@@ -25897,7 +25167,571 @@
 	  return SideBarItem;
 	}(_react.Component);
 
+	SideBarItem.propTypes = {
+	  active: _react2.default.PropTypes.bool,
+	  title: _react2.default.PropTypes.string,
+	  onClick: _react2.default.PropTypes.func
+	};
+
 	exports.default = SideBarItem;
+
+/***/ },
+/* 275 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _aphrodite = __webpack_require__(175);
+
+	var _reactRedux = __webpack_require__(197);
+
+	var _NewArticlePage = __webpack_require__(276);
+
+	var _NewArticlePage2 = _interopRequireDefault(_NewArticlePage);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var styles = _aphrodite.StyleSheet.create({
+	  container: {
+	    flex: 1,
+	    display: 'flex',
+	    border: '1px solid gray'
+	  },
+	  tab: {
+	    flex: 1
+	  }
+	});
+
+	var Main = function (_Component) {
+	  _inherits(Main, _Component);
+
+	  function Main(props) {
+	    _classCallCheck(this, Main);
+
+	    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Main).call(this, props));
+
+	    _this.state = {};
+	    _this.shouldDisplay = _this.shouldDisplay.bind(_this);
+	    return _this;
+	  }
+
+	  _createClass(Main, [{
+	    key: 'shouldDisplay',
+	    value: function shouldDisplay(me) {
+	      if (this.props.tab === me) return 'block';
+	      return 'none';
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      // let content 
+	      // switch (this.props.tab) {
+	      //   case 'new':
+	      //     content = <NewArticlePage />
+	      //     break
+	      //   case 'articles':
+	      //     content = <p>all articles..</p>
+	      //     break
+	      //   case 'settings':
+	      //     content = <p>settings </p>
+	      //     break
+	      //   case 'home':
+	      //   default:
+	      //     content = <h1>home</h1>
+	      // }
+	      // let display = ((t) => {
+	      //   switch (t) {
+	      //     case 'new':
+	      //   }
+	      // })(this.props.tab)
+	      return _react2.default.createElement(
+	        'div',
+	        { className: (0, _aphrodite.css)(styles.container) },
+	        _react2.default.createElement(
+	          'div',
+	          { className: (0, _aphrodite.css)(styles.tab), style: { display: this.shouldDisplay('new') } },
+	          _react2.default.createElement(_NewArticlePage2.default, null)
+	        ),
+	        _react2.default.createElement(
+	          'div',
+	          { className: (0, _aphrodite.css)(styles.tab), style: { display: this.shouldDisplay('articles') } },
+	          ' all articles'
+	        ),
+	        _react2.default.createElement(
+	          'div',
+	          { className: (0, _aphrodite.css)(styles.tab), style: { display: this.shouldDisplay('settings') } },
+	          ' settings'
+	        ),
+	        _react2.default.createElement(
+	          'div',
+	          { className: (0, _aphrodite.css)(styles.tab), style: { display: this.shouldDisplay('home') } },
+	          ' home'
+	        )
+	      );
+	    }
+	  }]);
+
+	  return Main;
+	}(_react.Component);
+
+	var mapProps = function mapProps(state) {
+	  return {
+	    tab: state.tab
+	  };
+	};
+
+	exports.default = (0, _reactRedux.connect)(mapProps)(Main);
+
+/***/ },
+/* 276 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _aphrodite = __webpack_require__(175);
+
+	var _reactRedux = __webpack_require__(197);
+
+	var _ArticlePage = __webpack_require__(277);
+
+	var _ArticlePage2 = _interopRequireDefault(_ArticlePage);
+
+	var _articles = __webpack_require__(278);
+
+	var _articles2 = _interopRequireDefault(_articles);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	// const styles = StyleSheet.create({
+	//   container: {
+	//     flex: 1,
+	//     display: 'flex',
+	//     flexDirection: 'column'
+	//   },
+
+	// })
+
+	// class NewArticlePage extends Component {
+	//   constructor (props) {
+	//     super(props)
+	//     this.state = {
+	//       title: '',
+	//     }
+	//   }
+
+	//   render () {
+	//     var newArticle = {}
+	//     return (
+	//       <ArticlePage article={newArticle} onSave={(a) => { this.props.save(a) }} />
+	//     )
+	//   }
+	// }
+
+	// NewArticlePage.propTypes = {
+	//   save: React.PropTypes.func
+	// }
+
+	var mapProps = function mapProps(state) {
+	  return {
+	    saveState: state.articles.saveState,
+	    article: {}
+	  };
+	};
+
+	var mapDispatch = function mapDispatch(dispatch, getState) {
+	  return {
+	    onSave: function onSave(article) {
+	      dispatch(_articles2.default.save(article, true));
+	    }
+	  };
+	};
+
+	exports.default = (0, _reactRedux.connect)(mapProps, mapDispatch)(_ArticlePage2.default);
+
+/***/ },
+/* 277 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _aphrodite = __webpack_require__(175);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var styles = _aphrodite.StyleSheet.create({
+	  container: {
+	    flex: 1,
+	    display: 'flex',
+	    flexDirection: 'column',
+	    padding: '50px 20px'
+	  }
+
+	});
+
+	var propTypes = {
+	  article: _react.PropTypes.object,
+	  onSave: _react.PropTypes.func,
+	  saveState: _react.PropTypes.string
+	};
+
+	var ArticlePage = function (_Component) {
+	  _inherits(ArticlePage, _Component);
+
+	  function ArticlePage(props) {
+	    _classCallCheck(this, ArticlePage);
+
+	    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(ArticlePage).call(this, props));
+
+	    _this.state = {
+	      title: _this.props.article.title || 'untitled',
+	      content: _this.props.article.content || '',
+	      category: _this.props.article.category || 'uncategorized',
+	      tags: _this.props.article.tags || ''
+	    };
+	    _this.change = _this.change.bind(_this);
+	    _this.save = _this.save.bind(_this);
+	    return _this;
+	  }
+
+	  _createClass(ArticlePage, [{
+	    key: 'change',
+	    value: function change(e) {
+	      var value = void 0;
+	      // value = e.target.id === 'content' ? e.target.value : e.target.value.trim()
+	      value = e.target.value;
+	      this.setState(_defineProperty({}, e.target.id, value));
+	    }
+	  }, {
+	    key: 'save',
+	    value: function save(e) {
+	      var article = {
+	        title: this.state.title.trim(),
+	        category: this.state.category.trim(),
+	        content: this.state.content,
+	        tags: this.state.tags.trim()
+	      };
+	      this.props.onSave(article);
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      var buttonTitle = this.props.saveState === 'unsaved' ? 'save' : this.props.saveState;
+	      console.log(buttonTitle);
+	      return _react2.default.createElement(
+	        'div',
+	        { className: (0, _aphrodite.css)(styles.container) },
+	        _react2.default.createElement(
+	          'h3',
+	          null,
+	          'Title'
+	        ),
+	        _react2.default.createElement('input', { id: 'title', value: this.state.title, onChange: this.change }),
+	        _react2.default.createElement(
+	          'div',
+	          null,
+	          _react2.default.createElement(
+	            'span',
+	            null,
+	            'category'
+	          ),
+	          _react2.default.createElement('input', { id: 'category', value: this.state.category, onChange: this.change })
+	        ),
+	        _react2.default.createElement(
+	          'div',
+	          null,
+	          _react2.default.createElement(
+	            'span',
+	            null,
+	            'tags'
+	          ),
+	          _react2.default.createElement('input', { id: 'tags', value: this.state.tags.toString(), onChange: this.change })
+	        ),
+	        _react2.default.createElement('textarea', { id: 'content', cols: 50, rows: 20, value: this.state.content, onChange: this.change }),
+	        _react2.default.createElement(
+	          'button',
+	          { disabled: this.props.saveState !== 'unsaved', onClick: this.save },
+	          ' ',
+	          buttonTitle,
+	          ' '
+	        )
+	      );
+	    }
+	  }]);
+
+	  return ArticlePage;
+	}(_react.Component);
+
+	ArticlePage.propTypes = propTypes;
+
+	exports.default = ArticlePage;
+
+/***/ },
+/* 278 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	/* global fetch, $ */
+	// import actionCreator  from '../../common/helpers/action-creator'
+
+	var save = function save(article, isNew) {
+	  var data = new FormData();
+	  Object.keys(article).forEach(function (k) {
+	    data.append(k, article[k]);
+	  });
+	  var _iteratorNormalCompletion = true;
+	  var _didIteratorError = false;
+	  var _iteratorError = undefined;
+
+	  try {
+	    for (var _iterator = data.entries()[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+	      var e = _step.value;
+
+	      console.log(e);
+	    }
+	  } catch (err) {
+	    _didIteratorError = true;
+	    _iteratorError = err;
+	  } finally {
+	    try {
+	      if (!_iteratorNormalCompletion && _iterator.return) {
+	        _iterator.return();
+	      }
+	    } finally {
+	      if (_didIteratorError) {
+	        throw _iteratorError;
+	      }
+	    }
+	  }
+
+	  var init = {
+	    method: 'POST',
+	    credentials: 'same-origin',
+	    body: data
+	  };
+	  return function (dispatch) {
+	    // if (isNew) {
+	    //   return $.post('/api/articles/new', article, (msg) => {
+	    //     if (msg === 'saved') dispatch(saved())
+	    //     else {
+	    //       dispatch(saveFailed())
+	    //     }
+	    //   })
+	    if (isNew) {
+	      return fetch('/api/articles/new', init).then(function (response) {
+	        return response.text();
+	      }).then(function (msg) {
+	        if (msg === 'saved') {
+	          dispatch(saved());
+	        } else {
+	          dispatch(saveFailed());
+	        }
+	        setTimeout(function () {
+	          dispatch(reset());
+	        }, 2000);
+	      });
+	    } else {
+	      return fetch('/api/articles/' + article.id, init);
+	    }
+	  };
+	};
+	var reset = function reset() {
+	  return {
+	    type: 'RESET_SAVE_STATE'
+	  };
+	};
+
+	var saved = function saved() {
+	  return {
+	    type: 'SAVED'
+	  };
+	};
+
+	var saveFailed = function saveFailed() {
+	  return {
+	    type: 'SAVE_FAILED'
+	  };
+	};
+
+	exports.default = {
+	  save: save,
+	  saved: saved,
+	  saveFailed: saveFailed,
+	  reset: reset,
+	  SAVED: 'SAVED',
+	  SAVE_FAILED: 'SAVE_FAILED',
+	  RESET_SAVE_STATE: 'RESET_SAVE_STATE'
+	};
+
+/***/ },
+/* 279 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _redux = __webpack_require__(204);
+
+	var _reduxThunk = __webpack_require__(227);
+
+	var _reduxThunk2 = _interopRequireDefault(_reduxThunk);
+
+	var _reducers = __webpack_require__(280);
+
+	var _reducers2 = _interopRequireDefault(_reducers);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	// let enhancer = applyMiddleware(thunk)
+	// export default enhancer(createStore)(reducers)
+	var composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || _redux.compose;
+	var store = (0, _redux.createStore)(_reducers2.default, composeEnhancers((0, _redux.applyMiddleware)(_reduxThunk2.default)));
+	exports.default = store;
+
+/***/ },
+/* 280 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _tab = __webpack_require__(281);
+
+	var _tab2 = _interopRequireDefault(_tab);
+
+	var _articles = __webpack_require__(282);
+
+	var _articles2 = _interopRequireDefault(_articles);
+
+	var _redux = __webpack_require__(204);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	exports.default = (0, _redux.combineReducers)({
+	  tab: _tab2.default,
+	  articles: _articles2.default
+	});
+
+/***/ },
+/* 281 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _tab = __webpack_require__(273);
+
+	var _tab2 = _interopRequireDefault(_tab);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	exports.default = function () {
+	  var state = arguments.length <= 0 || arguments[0] === undefined ? 'home' : arguments[0];
+	  var action = arguments[1];
+
+	  switch (action.type) {
+	    case _tab2.default.GOTO_TAB:
+	      {
+	        return action.tab;
+	      }
+	    default:
+	      return state;
+	  }
+	};
+
+/***/ },
+/* 282 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _articles = __webpack_require__(278);
+
+	var _articles2 = _interopRequireDefault(_articles);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function reducer() {
+	  var state = arguments.length <= 0 || arguments[0] === undefined ? { saveState: 'unsaved' } : arguments[0];
+	  var action = arguments[1];
+
+	  switch (action.type) {
+	    case _articles2.default.SAVED:
+	      {
+	        return { saveState: 'saved' };
+	      }
+	    case _articles2.default.SAVE_FAILED:
+	      {
+	        return { saveState: 'saveFailed' };
+	      }
+	    case _articles2.default.RESET_SAVE_STATE:
+	      {
+	        return { saveState: 'unsaved' };
+	      }
+	    default:
+	      return state;
+	  }
+	}
+
+	exports.default = reducer;
 
 /***/ }
 /******/ ]);
