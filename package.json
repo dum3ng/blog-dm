@@ -7,6 +7,10 @@
     "watch": "concurrently \" sass --watch ./public/stylesheets\" \" webpack --watch \"  \"nodemon  -w ./app.js ./bin/www\"",
     "router": "bash ./router"
   },
+  "engines": {
+     "node": "^7.1.0",
+    "npm": "3.10.7"
+  },
   "dependencies": {
     "aphrodite": "^1.1.0",
     "async": "^2.1.2",
