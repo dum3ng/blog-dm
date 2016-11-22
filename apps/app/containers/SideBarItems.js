@@ -16,6 +16,7 @@ class SideBarItems extends Component {
   constructor (props) {
     super(props)
     this.state = {
+      
     }
   }
   render () {
@@ -24,15 +25,15 @@ class SideBarItems extends Component {
     return (
       <div className={css(styles.container)}>
         <TabBarItem title='Home'
-          active={this.props.tab === 'home'} onClick={this.props.gotoHome}
+          active={this.props.tab === 'home'} location='/'
           normalColor={normalColor} activeColor={activeColor}
           normalImage='/img/home.svg' activeImage='/img/homeActive.svg' />
         <TabBarItem title='Articles'
-          active={this.props.tab === 'articles'} onClick={this.props.gotoArticles}
+          active={this.props.tab === 'articles'} location='/articles'
           normalColor={normalColor} activeColor={activeColor}
           normalImage='/img/articles.svg' activeImage='/img/articlesActive.svg' />
         <TabBarItem title='About me'
-          active={this.props.tab === 'about'} onClick={this.props.gotoAbout}
+          active={this.props.tab === 'about'} location='/about'
           normalColor={normalColor} activeColor={activeColor}
           normalImage='/img/about.svg' activeImage='/img/aboutActive.svg' />
       </div>

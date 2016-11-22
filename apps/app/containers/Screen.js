@@ -1,33 +1,45 @@
 import React, { Component } from 'react'
 import { StyleSheet, css } from 'aphrodite'
 import MetaBar from './MetaBar'
-import Main from './Main'
 import SideBar from './SideBar'
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     display: 'flex',
-    flexDirection: 'row',
+    flexDirection: 'row'
+  },
+  main: {
+    overflow: 'auto',
+    display: 'flex',
+    flex: 1
   }
 })
 
 class Screen extends Component {
-  constructor(props) {
+  constructor (props) {
     super(props)
     this.state = {
-      tab: '',
+      tab: ''
     }
   }
-  render() {
+  componentDidMount() {
+    console.log('screen mount.')
+  }
+  render () {
     return (
       <div className={css(styles.container)}>
         <SideBar />
-        <Main />
+        <div className={css(styles.main)}>
+          {this.props.children}
+        </div>
         <MetaBar />
       </div>
     )
   }
+}
+Screen.propTypes = {
+  children: React.PropTypes.any
 }
 
 export default Screen

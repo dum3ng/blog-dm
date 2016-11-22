@@ -1,9 +1,11 @@
 import React, { Component } from 'react'
 import { StyleSheet, css } from 'aphrodite'
+import {Link} from 'react-router'
 
 const styles = StyleSheet.create({
   container: {
     // flex: 1,
+    textDecoration: 'none',
     display: 'flex',
     flexDirection: 'row',
     alignItems: 'flex-end',
@@ -36,14 +38,14 @@ class TabBarItem extends Component {
   }
   render () {
     return (
-      <div className={css(styles.container)} onClick={this.props.onClick}>
+      <div className={css(styles.container)}>
         <div className={css(styles.wrap)} />
         <div className={css(styles.wrap)}>
           <img className={css(styles.image)} src={this.props.active ? this.props.activeImage : this.props.normalImage} />
         </div>
         <div className={css(styles.wrap, styles.text)}
           style={{color: this.props.active ? this.props.activeColor : this.props.normalColor}} >
-          {this.props.title}
+          <Link to={this.props.location}>{this.props.title}</Link>
         </div>
       </div>
     )
@@ -57,7 +59,7 @@ TabBarItem.propTypes = {
   activeImage: React.PropTypes.string,
   normalColor: React.PropTypes.string,
   activeColor: React.PropTypes.string,
-  onClick: React.PropTypes.func
+  location: React.PropTypes.string
 
 }
 export default TabBarItem

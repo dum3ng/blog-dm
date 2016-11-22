@@ -4,7 +4,7 @@ import {connect} from 'react-redux'
 
 import TAB from '../actions/tab'
 import Profile from '../components/Profile'
-import SideBarItemsContainer from './SideBarItemsContainer'
+import SideBarItems from './SideBarItems'
 
 const image = 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Indian_Cat_pic.jpg/220px-Indian_Cat_pic.jpg'
 const styles = StyleSheet.create({
@@ -32,7 +32,7 @@ class SideBar extends Component {
         <div className={css(styles.space)} />
         <Profile imageSource={image} name='Du Meng' />
         <div className={css(styles.space)} />
-        <SideBarItemsContainer />
+        <SideBarItems />
         <div className={css(styles.space)} />
       </div>
     )

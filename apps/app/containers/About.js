@@ -6,7 +6,8 @@ import ReactMarkdown from 'react-markdown'
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    display: 'flex'
+    display: 'flex',
+    overflow: 'auto'
   },
   wrapper: {
     flex: 1,
@@ -58,7 +59,7 @@ class About extends Component {
           <hr />
           <div>
             {introduction.split('\n').map((row) => {
-              return <p id='row'>{row}</p>
+              return <p key={row}>{row}</p>
             })}
           </div>
         </div>

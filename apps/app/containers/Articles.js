@@ -2,9 +2,10 @@
 import React, { Component } from 'react'
 import { StyleSheet, css } from 'aphrodite/no-important'
 import {connect} from 'react-redux'
+import {browserHistory} from 'react-router'
 import Spinner from '../components/Spinner'
-import Article from '../components/Article'
-import Detail from '../components/Detail'
+import ArticlesAction from '../actions/articles'
+import CategoryAction from '../actions/category'
 
 const styles = StyleSheet.create({
   container: {
@@ -13,8 +14,8 @@ const styles = StyleSheet.create({
     padding: '10px 50px',
     marginTop: 50
   },
-  categoryWrapper:{
-    marginBottom: 20,
+  categoryWrapper: {
+    marginBottom: 20
   },
   category: {
     marginLeft: 20
@@ -28,80 +29,77 @@ const styles = StyleSheet.create({
 
 })
 
+const Item = (props) =>{
+  const article = props.article
+  return (
+    <li onClick={props.onClick} className={css(styles.article)} >
+        {article.title}
+    </li>)
+}
+
 class Articles extends Component {
   constructor (props) {
     super(props)
     this.state = {
-      articles: {},
-      fetching: false,
-      isDetail: false,
-      articleChosen: {}
+
     }
-    this.fetchArticles = this.fetchArticles.bind(this)
-    this.onBack = this.onBack.bind(this)
-    this.display = this.display.bind(this)
+    this.onChooseArticle = this.onChooseArticle.bind(this)
+    this.onChooseCategory = this.onChooseCategory.bind(this)
   }
   componentDidMount () {
-    this.fetchArticles()
+    if (!this.props.articles.size) {
+      this.props.fetchArticles()
+    }
   }
-  fetchArticles () {
-    this.setState({fetching: true}, () => {
-      fetch('/api/articles')
-      .then((response) => {
-        return response.json()
-      })
-      .then((articles) => {
-        console.log(Object.keys(articles))
-        this.setState({articles: articles, fetching: false})
-      })
-    })
-  }
+
   onChooseArticle (art) {
-    this.setState({isDetail: true, articleChosen: art})
+    browserHistory.push(`/articles/${art.title}`)
+    this.props.chooseArticle(art)
   }
-  onBack () {
-    this.setState({isDetail: false})
+
+  onChooseCategory (cat) {
+    browserHistory.push(`/articles/${cat}`)
+    this.props.chooseCategory(cat)
   }
-  display (yes) {
-    let dis = yes ? this.state.isDetail : !this.state.isDetail
-    return dis ? 'block' : 'none'
-  }
+
   render () {
-    var content = (
-      <div style={{flex: 1}}>
-        {Object.keys(this.state.articles).map((cat) => {
-          return (
-            <div className={css(styles.categoryWrapper)}>
-              <div className={css(styles.category)}><h2>{cat}</h2></div>
-              { this.state.articles[cat].map((art) => {
-                 return <li key={art.title} className={css(styles.article)} 
-                          onClick={ this.onChooseArticle.bind(this, art) }>{art.title}</li>
-              }) }
-            </div>
-          )
+    var content = this.props.articles.size ? (
+      <div>
+        {this.props.articles.keySeq().map(cat => {
+          return <span onClick={() => { this.onChooseCategory(cat) }}>{cat}</span>
         })}
-      </div>)
-    content = this.state.fetching ? <Spinner /> : content
-    // var content = 'articles...'
-    console.log(this.state.isDetail)
+        {this.props.children}
+      </div>) : <div />
+    content = this.props.fetching ? <Spinner /> : content
     return (
       <div className={css(styles.container)}>
-        <div style={{display: this.display(false)}}>{content}</div>
-        <Detail style={{display: this.display(true)}} article={this.state.articleChosen} onBack={this.onBack} />
+        {content}
       </div>
     )
   }
 }
-
+Articles.propTypes = {
+  articles: React.PropTypes.object,
+  fetching: React.PropTypes.bool
+}
 const mapProps = (state) => {
   return {
- 
+    articles: state.articles.get('articles'),
+    fetching: state.articles.get('articlesFetching')
   }
 }
 
 const mapDispatch = (dispatch, getState) => {
   return {
- 
+    chooseArticle: (article) => {
+      dispatch(ArticlesAction.chooseArticle(article))
+    },
+    fetchArticles: () => {
+      dispatch(ArticlesAction.fetchArticles())
+    },
+    chooseCategory: (category) => {
+      dispatch(CategoryAction.chooseCategory(category))
+    }
   }   
 }
 

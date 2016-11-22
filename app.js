@@ -56,18 +56,18 @@ app.use('/modules', express.static(path.join(__dirname, 'node_modules')))
 // app.use('/about',about)
 // app.use('/cat',category)
 // app.use('/edit',edit)
-app.route('/')
+app.use('/api', api)
+app.use('/admin', admin)
+app.route('*')
 .get((req, res)=>{
   res.render('index.jade')
 }) 
-app.use('/api', api)
-app.use('/admin', admin)
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
   err.status = 404;
-  next(err);
-});
+  next(err)
+})
 
 // error handlers
 

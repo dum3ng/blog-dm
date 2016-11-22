@@ -57,7 +57,7 @@ Main.propTypes = {
 }
 const mapProps = (state) => {
   return {
-    tab: state.tab
+    tab: state.tab,
   }
 }
 export default connect(mapProps)(Main)

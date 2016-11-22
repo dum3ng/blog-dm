@@ -4,6 +4,8 @@ import { StyleSheet, css } from 'aphrodite/no-important'
 import Spinner from '../components/Spinner'
 // import ReactMarkdown from 'react-markdown'
 import Article from '../components/Article'
+import {connect} from 'react-redux'
+import ArticlesAction from '../actions/articles'
 
 const styles = StyleSheet.create({
   container: {
@@ -19,30 +21,39 @@ class Home extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      article: {}
     }
   }
   componentDidMount() {
-    fetch('/api/articles/recent')
-    .then((response) => {
-      var j = response.json()
-      // console.log(j)
-      return j 
-    })
-    .then((json) => {
-      // console.log(json[0])
-      this.setState({article: json[0]})
-    })
+    console.log('home mount')
+    if (!this.props.recent.title) {
+      this.props.fetchRecent()
+    }
   }
   render () {
-    var content = this.state.article.title ? (<Article article={this.state.article} />) : <Spinner />
+    var content = this.props.fetching ? <Spinner /> : (<Article article={this.props.recent} />)
     return (
       <div className={css(styles.container)}>
         {content}
       </div>
     )
+    // return <Spinner />
   }
 }
-
-export default Home
-  
+Home.propTypes = {
+  fetching: React.PropTypes.bool,
+  recent: React.PropTypes.object
+}
+const mapProps = (state) => {
+  return {
+    recent: state.articles.get('articleRecent'),
+    fetching: state.articles.get('recentFetching')
+  }
+}
+const mapDispatch = (dispatch) => {
+  return {
+    fetchRecent: () => {
+      dispatch(ArticlesAction.fetchRecent())
+    }
+  }
+}
+export default connect(mapProps, mapDispatch)(Home)

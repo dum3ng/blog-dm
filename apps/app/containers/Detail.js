@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { StyleSheet, css } from 'aphrodite/no-important'
-import Article from './Article'
+import Article from '../components/Article'
+import {browserHistory} from 'react-router'
+import {connect} from 'react-redux'
 
 const styles = StyleSheet.create({
   container: {
@@ -28,16 +30,20 @@ const styles = StyleSheet.create({
 })
 
 class Detail extends Component {
-  constructor(props) {
+  constructor (props) {
     super(props)
     this.state = {
       
     }
+    this.onBack = this.onBack.bind(this)
   }
-  render() {
+  onBack () {
+    browserHistory.push('/articles')
+  }
+  render () {
     return (
       <div className={css(styles.container)} style={this.props.style}>
-        <div className={css(styles.back)} onClick={this.props.onBack}>
+        <div className={css(styles.back)} onClick={this.onBack}>
           <span className={css(styles.span)}>
             <img src='/img/back.svg' />
           </span>
@@ -54,5 +60,10 @@ Detail.propTypes = {
   article: React.PropTypes.object,
   onBack: React.PropTypes.func
 }
+const mapProps = (state) => {
+  return {
+    article: state.articles.get('articleChosen')
+  }
+}
 
-export default Detail
+export default connect(mapProps)(Detail)
