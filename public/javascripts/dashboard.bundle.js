@@ -60,11 +60,11 @@
 
 	var _aphrodite = __webpack_require__(266);
 
-	var _Screen = __webpack_require__(328);
+	var _Screen = __webpack_require__(329);
 
 	var _Screen2 = _interopRequireDefault(_Screen);
 
-	var _store = __webpack_require__(336);
+	var _store = __webpack_require__(337);
 
 	var _store2 = _interopRequireDefault(_store);
 
@@ -23061,34 +23061,7 @@
 /* 207 */,
 /* 208 */,
 /* 209 */,
-/* 210 */
-/***/ function(module, exports) {
-
-	'use strict';
-
-	exports.__esModule = true;
-	function createThunkMiddleware(extraArgument) {
-	  return function (_ref) {
-	    var dispatch = _ref.dispatch;
-	    var getState = _ref.getState;
-	    return function (next) {
-	      return function (action) {
-	        if (typeof action === 'function') {
-	          return action(dispatch, getState, extraArgument);
-	        }
-
-	        return next(action);
-	      };
-	    };
-	  };
-	}
-
-	var thunk = createThunkMiddleware();
-	thunk.withExtraArgument = createThunkMiddleware;
-
-	exports['default'] = thunk;
-
-/***/ },
+/* 210 */,
 /* 211 */,
 /* 212 */,
 /* 213 */,
@@ -23141,7 +23114,34 @@
 /* 260 */,
 /* 261 */,
 /* 262 */,
-/* 263 */,
+/* 263 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	exports.__esModule = true;
+	function createThunkMiddleware(extraArgument) {
+	  return function (_ref) {
+	    var dispatch = _ref.dispatch;
+	    var getState = _ref.getState;
+	    return function (next) {
+	      return function (action) {
+	        if (typeof action === 'function') {
+	          return action(dispatch, getState, extraArgument);
+	        }
+
+	        return next(action);
+	      };
+	    };
+	  };
+	}
+
+	var thunk = createThunkMiddleware();
+	thunk.withExtraArgument = createThunkMiddleware;
+
+	exports['default'] = thunk;
+
+/***/ },
 /* 264 */,
 /* 265 */,
 /* 266 */
@@ -24962,7 +24962,8 @@
 /* 325 */,
 /* 326 */,
 /* 327 */,
-/* 328 */
+/* 328 */,
+/* 329 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -24979,11 +24980,11 @@
 
 	var _aphrodite = __webpack_require__(266);
 
-	var _SideBar = __webpack_require__(329);
+	var _SideBar = __webpack_require__(330);
 
 	var _SideBar2 = _interopRequireDefault(_SideBar);
 
-	var _Main = __webpack_require__(332);
+	var _Main = __webpack_require__(333);
 
 	var _Main2 = _interopRequireDefault(_Main);
 
@@ -25033,7 +25034,7 @@
 	exports.default = Screen;
 
 /***/ },
-/* 329 */
+/* 330 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -25052,11 +25053,11 @@
 
 	var _reactRedux = __webpack_require__(175);
 
-	var _tab = __webpack_require__(330);
+	var _tab = __webpack_require__(331);
 
 	var _tab2 = _interopRequireDefault(_tab);
 
-	var _SideBarItem = __webpack_require__(331);
+	var _SideBarItem = __webpack_require__(332);
 
 	var _SideBarItem2 = _interopRequireDefault(_SideBarItem);
 
@@ -25135,7 +25136,7 @@
 	exports.default = (0, _reactRedux.connect)(mapProps, mapDispatch)(SideBar);
 
 /***/ },
-/* 330 */
+/* 331 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -25158,7 +25159,7 @@
 	};
 
 /***/ },
-/* 331 */
+/* 332 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -25233,7 +25234,7 @@
 	exports.default = SideBarItem;
 
 /***/ },
-/* 332 */
+/* 333 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -25252,7 +25253,7 @@
 
 	var _reactRedux = __webpack_require__(175);
 
-	var _NewArticlePage = __webpack_require__(333);
+	var _NewArticlePage = __webpack_require__(334);
 
 	var _NewArticlePage2 = _interopRequireDefault(_NewArticlePage);
 
@@ -25356,7 +25357,7 @@
 	exports.default = (0, _reactRedux.connect)(mapProps)(Main);
 
 /***/ },
-/* 333 */
+/* 334 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -25373,11 +25374,11 @@
 
 	var _reactRedux = __webpack_require__(175);
 
-	var _ArticlePage = __webpack_require__(334);
+	var _ArticlePage = __webpack_require__(335);
 
 	var _ArticlePage2 = _interopRequireDefault(_ArticlePage);
 
-	var _articles = __webpack_require__(335);
+	var _articles = __webpack_require__(336);
 
 	var _articles2 = _interopRequireDefault(_articles);
 
@@ -25430,7 +25431,7 @@
 	exports.default = (0, _reactRedux.connect)(mapProps, mapDispatch)(_ArticlePage2.default);
 
 /***/ },
-/* 334 */
+/* 335 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -25565,7 +25566,7 @@
 	exports.default = ArticlePage;
 
 /***/ },
-/* 335 */
+/* 336 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -25666,7 +25667,7 @@
 	};
 
 /***/ },
-/* 336 */
+/* 337 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -25677,11 +25678,11 @@
 
 	var _redux = __webpack_require__(182);
 
-	var _reduxThunk = __webpack_require__(210);
+	var _reduxThunk = __webpack_require__(263);
 
 	var _reduxThunk2 = _interopRequireDefault(_reduxThunk);
 
-	var _reducers = __webpack_require__(337);
+	var _reducers = __webpack_require__(338);
 
 	var _reducers2 = _interopRequireDefault(_reducers);
 
@@ -25694,7 +25695,7 @@
 	exports.default = store;
 
 /***/ },
-/* 337 */
+/* 338 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -25703,11 +25704,11 @@
 	  value: true
 	});
 
-	var _tab = __webpack_require__(338);
+	var _tab = __webpack_require__(339);
 
 	var _tab2 = _interopRequireDefault(_tab);
 
-	var _articles = __webpack_require__(339);
+	var _articles = __webpack_require__(340);
 
 	var _articles2 = _interopRequireDefault(_articles);
 
@@ -25721,7 +25722,7 @@
 	});
 
 /***/ },
-/* 338 */
+/* 339 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -25730,7 +25731,7 @@
 	  value: true
 	});
 
-	var _tab = __webpack_require__(330);
+	var _tab = __webpack_require__(331);
 
 	var _tab2 = _interopRequireDefault(_tab);
 
@@ -25751,7 +25752,7 @@
 	};
 
 /***/ },
-/* 339 */
+/* 340 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -25760,7 +25761,7 @@
 	  value: true
 	});
 
-	var _articles = __webpack_require__(335);
+	var _articles = __webpack_require__(336);
 
 	var _articles2 = _interopRequireDefault(_articles);
 
