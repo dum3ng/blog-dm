@@ -7,7 +7,8 @@ import {browserHistory} from 'react-router'
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    display: 'flex'
+    display: 'flex',
+    padding: '50px 20px'
   }
 
 })
@@ -29,7 +30,7 @@ class Category extends Component {
      var content = this.props.articles.size ? (
       <div style={{flex: 1}}>
         {this.props.articles.get(category).map((article) => {
-              return (<li key={article.title} onClick={() => {this.onChooseArticle(article)}} >{article.title} </li>)
+              return (<h3 style={{textDecoration: 'underline', cursor: 'pointer'}} key={article.title} onClick={() => {this.onChooseArticle(article)}} >{article.title} </h3>)
                 })}
       </div>) : <div />
     return (

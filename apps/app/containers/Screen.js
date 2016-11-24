@@ -7,12 +7,16 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     display: 'flex',
-    flexDirection: 'row'
+    flexDirection: 'row',
+    '@media (max-width: 768px)': {
+      flexDirection: 'column'
+    }
   },
   main: {
     overflow: 'auto',
     display: 'flex',
-    flex: 1
+    flex: 3,
+
   }
 })
 

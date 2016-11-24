@@ -15,13 +15,22 @@ const styles = StyleSheet.create({
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
+    '@media (max-width: 768px)': {
+      flexDirection: 'row'
+    }
   },
   image: {
     width: 100,
     height: 100,
     borderRadius: 50,
+    '@media (max-width: 768px)': {
+      width: 48,
+      height: 48,
+      borderRadius: 24
+    }
   },
   name: {
+    flex: 1,
     textAlign: 'center',
   }
 })

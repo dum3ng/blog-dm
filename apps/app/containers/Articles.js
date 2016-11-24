@@ -6,6 +6,7 @@ import {browserHistory} from 'react-router'
 import Spinner from '../components/Spinner'
 import ArticlesAction from '../actions/articles'
 import CategoryAction from '../actions/category'
+import NavItem from '../components/NavItem'
 
 const styles = StyleSheet.create({
   container: {
@@ -49,6 +50,8 @@ class Articles extends Component {
   componentDidMount () {
     if (!this.props.articles.size) {
       this.props.fetchArticles()
+    } else {
+      browserHistory.push(`/articles/${this.props.category}`)
     }
   }
 
@@ -60,14 +63,17 @@ class Articles extends Component {
   onChooseCategory (cat) {
     browserHistory.push(`/articles/${cat}`)
     this.props.chooseCategory(cat)
-  }
+  } 
 
   render () {
     var content = this.props.articles.size ? (
-      <div>
+      <div style={{flex: 1, display: 'flex', flexDirection:'column'}}>
+      <div style={{display: 'flex', flexDirection: 'row', height: 50}}>
         {this.props.articles.keySeq().map(cat => {
-          return <span onClick={() => { this.onChooseCategory(cat) }}>{cat}</span>
+          const color = this.props.category === cat ? '#337ab7' : 'white'
+          return <NavItem key={cat} onClick={() => { this.onChooseCategory(cat) }} title={cat} style={{backgroundColor:'black', color}}/>
         })}
+        </div>
         {this.props.children}
       </div>) : <div />
     content = this.props.fetching ? <Spinner /> : content
@@ -85,7 +91,8 @@ Articles.propTypes = {
 const mapProps = (state) => {
   return {
     articles: state.articles.get('articles'),
-    fetching: state.articles.get('articlesFetching')
+    fetching: state.articles.get('articlesFetching'),
+    category: state.category
   }
 }
 

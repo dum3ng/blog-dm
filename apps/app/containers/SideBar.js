@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { StyleSheet, css } from 'aphrodite'
+import { StyleSheet, css } from 'aphrodite/no-important'
 import {connect} from 'react-redux'
 
 import TAB from '../actions/tab'
@@ -9,10 +9,15 @@ import SideBarItems from './SideBarItems'
 const image = 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Indian_Cat_pic.jpg/220px-Indian_Cat_pic.jpg'
 const styles = StyleSheet.create({
   sidebar: {
-    width: 250,
+    // width: 250,
+    flex: 1,
     backgroundColor: '#333',
     display: 'flex',
     flexDirection: 'column',
+    '@media (max-width: 768px)': {
+      maxHeight: 60,
+      flexDirection: 'row'
+    }
   },
   space: {
     flex:1,

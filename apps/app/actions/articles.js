@@ -1,5 +1,5 @@
 import {chooseCategory} from './category'
-
+import {browserHistory} from 'react-router'
 export const CHOOSE_ARTICLE = 'CHOOSE_ARTICLE'
 
 export const ARTICLES_FETCHED = 'ARTICLES_FETCHED'
@@ -43,7 +43,9 @@ const fetchArticles = () => {
     }).then((json) => {
 
       dispatch(articlesFetched(json))
-      dispatch(chooseCategory(Object.keys(json)[0]))
+      const cat = Object.keys(json)[0]
+      dispatch(chooseCategory(cat))
+      browserHistory.push(`/articles/${cat}`)
       dispatch({type: ARTICLES_FETCH_END})
     })
   }

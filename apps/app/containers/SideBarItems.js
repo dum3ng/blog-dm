@@ -7,7 +7,11 @@ const styles = StyleSheet.create({
     display: 'flex',
     minHeight: 200,
     flexDirection: 'column',
-    justifyContent: 'space-around'
+    justifyContent: 'space-around',
+    '@media (max-width: 768px)': {
+      minHeight: 50,
+      flexDirection: 'row'
+    }
   }
 
 })
@@ -16,7 +20,7 @@ class SideBarItems extends Component {
   constructor (props) {
     super(props)
     this.state = {
-      
+
     }
   }
   render () {

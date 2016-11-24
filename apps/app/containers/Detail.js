@@ -38,7 +38,7 @@ class Detail extends Component {
     this.onBack = this.onBack.bind(this)
   }
   onBack () {
-    browserHistory.push('/articles')
+    browserHistory.push('/articles/'+this.props.category)
   }
   render () {
     return (
@@ -62,7 +62,8 @@ Detail.propTypes = {
 }
 const mapProps = (state) => {
   return {
-    article: state.articles.get('articleChosen')
+    article: state.articles.get('articleChosen'),
+    category: state.category
   }
 }
 

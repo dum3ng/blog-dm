@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { StyleSheet, css } from 'aphrodite'
+import { StyleSheet, css } from 'aphrodite/no-important'
 import {Link} from 'react-router'
 
 const styles = StyleSheet.create({
@@ -13,14 +13,22 @@ const styles = StyleSheet.create({
     padding: '5px 20px',
     ':hover': {
       backgroundColor: 'gray'
+    },
+    '@media (max-width: 768px)': {
+      padding: '5px 5px',
+      alignItems: 'center'
     }
   },
   wrap: {
     flex: 1,
+
   },
   image: {
     float: 'right',
     paddingRight: 20,
+    '@media (max-width: 768px)': {
+      display: 'none'
+    }
   },
   text: {
     textAlign: 'right',
