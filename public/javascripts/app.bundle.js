@@ -35178,6 +35178,7 @@
 	    color: 'white',
 	    flex: 0.8,
 	    backgroundImage: 'url("/img/meta.jpg")',
+	    backgroundSize: 'auto 100%',
 	    '@media (max-width: 768px)': {
 	      display: 'none'
 	    }

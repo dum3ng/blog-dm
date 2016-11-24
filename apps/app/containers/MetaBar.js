@@ -9,6 +9,7 @@ const styles = StyleSheet.create({
     color: 'white',
     flex: 0.8,
     backgroundImage: 'url("/img/meta.jpg")',
+    backgroundSize: 'auto 100%',
     '@media (max-width: 768px)': {
       display: 'none'
     }
@@ -24,7 +25,6 @@ class MetaBar extends Component {
   render() {
     return (
       <div className={css(styles.container)}>
-        
       </div>
     )
   }
